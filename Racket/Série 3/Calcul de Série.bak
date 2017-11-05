@@ -1,0 +1,16 @@
+;; The first three lines of this file were inserted by DrRacket. They record metadata
+;; about the language level of this file in a form that our tools can easily process.
+#reader(lib "htdp-advanced-reader.ss" "lang")((modname |Calcul de Série|) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t constructor repeating-decimal #t #t none #f () #f)))
+(define (serie op fct a inc b)
+  (if (> a b)
+      (if (equal? op +) 0 1)
+      (op (fct a) (serie op fct (inc a) inc b))))
+
+(define (carre x)(* x x))
+(define (incr x)(+ x 1))
+(define (identite x) x)
+(define (racine x)(sqrt x))
+(serie * carre 2 incr 5)
+(serie + incr 2 carre 5)
+(serie * identite 2 incr 5)
+(serie * racine 4 carre 6)

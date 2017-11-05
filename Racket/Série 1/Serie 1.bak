@@ -1,0 +1,15 @@
+;; The first three lines of this file were inserted by DrRacket. They record metadata
+;; about the language level of this file in a form that our tools can easily process.
+#reader(lib "htdp-advanced-reader.ss" "lang")((modname |Serie +|) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t constructor repeating-decimal #t #t none #f () #f)))
+    ;; exercice 1
+;on définis les valeur cinq, moins, neuf, six, vrai
+(define cinq 7)
+(define moins 9)
+(define neuf -)
+(define six 4)
+(define vrai #t)
+;on utilise ensuite ces definition
+cinq
+(= (+ cinq six) 11)
+(neuf moins cinq)
+(and (> si cinq) vrai)

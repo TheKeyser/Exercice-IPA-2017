@@ -1,0 +1,54 @@
+;; The first three lines of this file were inserted by DrRacket. They record metadata
+;; about the language level of this file in a form that our tools can easily process.
+#reader(lib "htdp-advanced-reader.ss" "lang")((modname |Pendu (exo 2)|) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t constructor repeating-decimal #t #t none #f () #f)))
+(define dico  '((e l i s t e) (e d e s) (s m o t s)))
+(define liste-visible '())
+(define liste-cachee '())
+(define essais 0)
+
+(define (status)
+  (begin (display "nb essais = ")
+         (display essais)
+         (display " liste cachee =  ")
+         (display liste-cachee)
+         ))
+          
+(define (tirage nb liste)
+  (if (= nb 0)
+      (car liste)
+      (tirage (- nb 1) (cdr liste))))
+
+(define (genere-liste-vide nb)
+  (if (= nb 0)
+      null
+      (cons '- (genere-liste-vide (- nb 1))
+            )))
+
+(define (init)
+  (begin
+    (set! liste-visible (tirage (random (length dico)) dico))
+    (set! essais 5)
+    (set! liste-cachee (genere-liste-vide (length liste-visible)))
+    ))
+
+(init)
+(status)
+(define (remplace liste-v liste-c char)
+  (if (null? liste-c)
+      null
+      (if (equal? (car liste-v) char)
+          (cons char (remplace (cdr liste-v) (cdr liste-c) char))
+          (cons (car liste-c) (remplace (cdr liste-v) (cdr liste-c) char)))))
+
+(define (guess symbol)
+  (if (= essais 0)
+      (display "perdu appler init")
+      (if (equal? liste-cachee (remplace liste-visible liste-cachee symbol))
+          (begin (display "raté ")
+                 (status)
+                 (set! essais (- essais 1))
+                 )
+          (begin (set! liste-cachee (remplace liste-visible liste-cachee symbol))
+                 (status))
+          )))
+
