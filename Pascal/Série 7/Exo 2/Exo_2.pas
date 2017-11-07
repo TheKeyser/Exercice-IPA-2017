@@ -19,7 +19,7 @@ begin
     writeln('seconde:');
     writeln(s_3);
     writeln('minute:');
-    writeln(m_3)
+    writeln(m_3);
     writeln('heure:');
     writeln(h_3)
   end
