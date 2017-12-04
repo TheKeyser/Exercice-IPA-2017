@@ -1,6 +1,6 @@
 program Etudiant;
   const
-    TailleNomFamille = 45;
+    TailleNomFamille = 67;
     TaillePrenom = 15;
     TailleSection = 15;
   Type
