@@ -11,7 +11,10 @@ program spirale;
       LineTo((x + alpha), (y + longueur));
       LineTo((x + alpha), (y + longueur - alpha))
     end;
+    procedure Spirale(x,y,alpha,longueur: integer);
+    begin
 
+    end;
 begin
   mode := D8bit;
   resolution := m640x480;
