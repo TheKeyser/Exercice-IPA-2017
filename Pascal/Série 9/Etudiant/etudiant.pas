@@ -2,7 +2,7 @@ program Etudiant;
   const
     TailleNomFamille = 67;
     TaillePrenom = 15;
-    TailleSection = 15;
+    TailleSection = 55;
   Type
     EtudiantType = record {stock les infomation sur les étudiant}
       NomFamille : string[TailleNomFamille];
